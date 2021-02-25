@@ -1,0 +1,6 @@
+<h3>Moyenne de mes enfants {{ moyenne }}</h3>
+<app-fils
+  *ngFor="let enf of enfants"
+  [nom]="enf"
+  (message)="computeAvg($event)"
+></app-fils>
