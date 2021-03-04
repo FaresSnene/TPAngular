@@ -5,13 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PereComponent } from './pere/pere.component';
 import { FilsComponent } from './pere/fils/fils.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { AddComponent } from './add/add.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, FooterComponent, PereComponent, FilsComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    FooterComponent,
+    PereComponent,
+    FilsComponent,
+    RecipesComponent,
+    AddComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

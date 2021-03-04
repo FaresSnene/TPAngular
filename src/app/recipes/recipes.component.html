@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-4" *ngFor="let rec of recette">
+    <div class="card" style="width: 18rem">
+      <img class="card-img-top" [src]="rec.imageURL" alt="Card image cap" />
+      <div class="card-body">
+        <!-- <h5 *ngIf="rec.name == 'Crock Pot Roast'" class="card-title red">
+          {{ rec.name }}
+        </h5>
+        <h5 *ngIf="rec.name != 'Crock Pot Roast'" class="card-title">
+          {{ rec.name }}
+        </h5> -->
+        <!-- <h5
+          [ngStyle]="{
+            color: rec.name === 'Crock Pot Roast' ? 'green' : 'red'
+          }"
+        >
+          {{ rec.name }}
+        </h5> -->
+        <h5 [ngClass]="{ textsuccess: true }">{{ rec.name }}</h5>
+
+        <p class="card-text">
+          {{ rec.steps }}
+        </p>
+        <a [href]="rec.originalURL" class="btn btn-primary">Site Web</a>
+      </div>
+    </div>
+  </div>
+</div>

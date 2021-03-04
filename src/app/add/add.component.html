@@ -1,0 +1,49 @@
+<form [formGroup]="add">
+  <div class="form-group">
+    <label for="recipe">Name Recipe</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter Name Recipe"
+      formControlName="name"
+    />
+    <small class="text-danger" *ngIf="add.get('name').hasError('required')"
+      >This field is required</small
+    >
+    <small class="text-danger" *ngIf="add.get('name').hasError('minlength')"
+      >Min lenght</small
+    >
+    <small class="text-danger" *ngIf="add.get('name').hasError('maxlength')"
+      >Max lenght {{ add.get("name").errors.maxlength.requiredLength }}</small
+    >
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Steps</label>
+    <input
+      type="text"
+      class="form-control"
+      id="steps"
+      placeholder="Steps"
+      formControlName="steps"
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Image Url</label>
+    <input
+      type="text"
+      class="form-control"
+      id="url"
+      placeholder="URL"
+      formControlName="url"
+    />
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-primary"
+    (click)="show()"
+    [disabled]="!add.valid"
+  >
+    Add Recipe
+  </button>
+</form>
