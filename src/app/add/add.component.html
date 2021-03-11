@@ -46,4 +46,18 @@
   >
     Add Recipe
   </button>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Recipe ID</label>
+    <input
+      type="text"
+      class="form-control"
+      id="id"
+      placeholder="id"
+      formControlName="id"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="showById()">
+    Get Recipe By ID
+  </button>
 </form>

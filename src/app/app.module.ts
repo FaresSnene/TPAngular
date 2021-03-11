@@ -10,6 +10,7 @@ import { PereComponent } from './pere/pere.component';
 import { FilsComponent } from './pere/fils/fils.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { AddComponent } from './add/add.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,13 @@ import { AddComponent } from './add/add.component';
     RecipesComponent,
     AddComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
