@@ -60,4 +60,50 @@
   <button type="submit" class="btn btn-primary" (click)="showById()">
     Get Recipe By ID
   </button>
+  <div class="row" *ngIf="recipeById">
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem">
+        <img
+          class="card-img-top"
+          [src]="recipeById.imageURL"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5>{{ recipeById.name }}</h5>
+
+          <p class="card-text">
+            {{ recipeById.steps }}
+          </p>
+          <a [href]="recipeById.originalURL" class="btn btn-primary"
+            >Site Web</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" (click)="update()">
+    Update Recipe By ID
+  </button>
 </form>
+<br />
+
+<button type="submit" class="btn btn-primary" (click)="showAll()">
+  Show All
+</button>
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let rec of recipes">
+    <div class="card" style="width: 18rem">
+      <img class="card-img-top" [src]="rec.imageURL" alt="Card image cap" />
+      <div class="card-body">
+        <h5>{{ rec.name }}</h5>
+
+        <p class="card-text">
+          {{ rec.steps }}
+        </p>
+        <a [href]="rec.originalURL" class="btn btn-primary">Site Web</a>
+      </div>
+    </div>
+  </div>
+</div>

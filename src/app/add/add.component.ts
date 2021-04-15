@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from '../Providers/api.service';
 
 @Component({
@@ -9,8 +10,14 @@ import { ApiService } from '../Providers/api.service';
 })
 export class AddComponent implements OnInit {
   public add: FormGroup;
+  public recipes: any;
+  public recipeById: any;
 
-  constructor(public formbuilder: FormBuilder, public apiservice: ApiService) {
+  constructor(
+    public formbuilder: FormBuilder,
+    public apiservice: ApiService,
+    public router: Router
+  ) {
     this.add = formbuilder.group({
       name: [
         '',
@@ -35,8 +42,24 @@ export class AddComponent implements OnInit {
   }
 
   showById() {
-    this.apiservice.getRecipeById(this.add.value);
-    console.log(this.add.value + 'Hello');
-    /* console.log(res);*/
+    this.apiservice.getRecipeById(this.add.get('id').value).subscribe((res) => {
+      console.log(this.add.get('id').value);
+      this.recipeById = res;
+    });
+  }
+
+  showAll() {
+    this.apiservice.getAllRecipes().subscribe((res) => {
+      this.recipes = res;
+    });
+  }
+
+  update() {
+    this.apiservice
+      .updateRecipes(this.add.get('id').value, this.add.value)
+      .subscribe(() => {
+        this.add.reset();
+        console.log('Recipe Updated');
+      });
   }
 }

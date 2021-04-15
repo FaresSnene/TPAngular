@@ -27,4 +27,16 @@ export class ApiService {
   getRecipeById(recipeid): Observable<Recipes> {
     return this.http.get<Recipes>(this.url + '/' + recipeid);
   }
+
+  getAllRecipes(): Observable<Recipes> {
+    return this.http.get<Recipes>(this.url);
+  }
+
+  updateRecipes(id, recipe): Observable<Recipes> {
+    return this.http.put<Recipes>(
+      this.url + '/' + id,
+      JSON.stringify(recipe),
+      this.httpOptions
+    );
+  }
 }
